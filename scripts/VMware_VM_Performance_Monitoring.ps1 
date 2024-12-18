@@ -1,0 +1,31 @@
+# PowerShell script to monitor VMware VM performance and send alerts
+
+# Connect to vCenter
+$vcServer = "vcenter.example.com"
+$vcUsername = "administrator@vsphere.local"
+$vcPassword = "password"
+$thresholdCpu = 90 # CPU usage in percentage
+$thresholdMemory = 90 # Memory usage in percentage
+$alertEmail = "admin@example.com"
+
+Connect-VIServer -Server $vcServer -User $vcUsername -Password $vcPassword
+
+# Get list of all VMs
+$vms = Get-VM
+
+foreach ($vm in $vms) {
+    # Get performance stats
+    $cpuUsage = Get-Stat -Entity $vm -Stat cpu.usage.average -Start (Get-Date).AddMinutes(-5) -IntervalMins 5 | Select-Object -ExpandProperty Value
+    $memoryUsage = Get-Stat -Entity $vm -Stat mem.usage.average -Start (Get-Date).AddMinutes(-5) -IntervalMins 5 | Select-Object -ExpandProperty Value
+
+    if ($cpuUsage -gt $thresholdCpu) {
+        Send-MailMessage -From "no-reply@example.com" -To $alertEmail -Subject "VM $($vm.Name) CPU Alert" -Body "CPU usage is above $thresholdCpu%: $cpuUsage%" -SmtpServer "smtp.example.com"
+    }
+
+    if ($memoryUsage -gt $thresholdMemory) {
+        Send-MailMessage -From "no-reply@example.com" -To $alertEmail -Subject "VM $($vm.Name) Memory Alert" -Body "Memory usage is above $thresholdMemory%: $memoryUsage%" -SmtpServer "smtp.example.com"
+    }
+}
+
+# Disconnect from vCenter
+Disconnect-VIServer -Server $vcServer -Confirm:$false
