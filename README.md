@@ -217,6 +217,42 @@ This repository contains a collection of PowerShell scripts designed to automate
      - Ensures successful backup completion.
      - Manages backup storage and retention policies.
 
+### 31. **[VMware vSAN Capacity and Performance Analysis](scripts/VMware_vSAN_Capacity_and_Performance_Analysis.ps1)**  
+- **Purpose**: Analyzes vSAN clusters by collecting storage capacity and performance metrics to identify optimization opportunities.  
+- **Key Features**:  
+  - Collects and reports on vSAN storage capacity (used, free, and total).  
+  - Identifies potential bottlenecks in vSAN performance.  
+  - Provides insights for capacity planning and resource optimization.
+
+### 32. **[VMware NSX Security Policy Automation](scripts/VMware_NSX_Security_Policy_Automation.ps1)**  
+- **Purpose**: Automates the creation, management, and enforcement of network security policies in VMware NSX environments.  
+- **Key Features**:  
+  - Creates and applies security groups, firewall rules, and micro-segmentation policies.  
+  - Ensures consistent network security posture across virtualized environments.  
+  - Reduces manual configuration and improves response time to security incidents.
+
+### 33. **[VMware Template Lifecycle Management](scripts/VMware_Template_Lifecycle_Management.ps1)**  
+- **Purpose**: Manages the entire lifecycle of VM templates, including updating, patching, versioning, and redeploying standardized templates.  
+- **Key Features**:  
+  - Updates VM templates to include the latest patches and configurations.  
+  - Maintains versioned template catalogs for consistent deployments.  
+  - Reduces manual overhead and ensures new VMs are always based on the latest standards.
+
+### 34. **[VMware Firmware and Driver Update Automation](scripts/VMware_Firmware_and_Driver_Update_Automation.ps1)**  
+- **Purpose**: Automates firmware and driver updates on ESXi hosts, ensuring they remain secure, compliant, and optimally configured.  
+- **Key Features**:  
+  - Orchestrates driver updates and firmware patches across multiple hosts.  
+  - Integrates with vendor tools to ensure consistency and compliance.  
+  - Minimizes downtime by automatically placing hosts into maintenance mode and restoring them post-update.
+
+### 35. **[VMware vRealize Orchestrator (vRO) Integration Tool](scripts/VMware_vRealize_Orchestrator_Integration_Tool.ps1)**  
+- **Purpose**: Integrates PowerCLI workflows with vRealize Orchestrator, enabling seamless execution and chaining of complex automation tasks.  
+- **Key Features**:  
+  - Triggers and monitors vRO workflows through REST APIs.  
+  - Bridges scripted automation with enterprise-level orchestrations.  
+  - Simplifies the management of multi-step processes across your VMware environment.
+
+
 ---
 
 ### Requirements:
